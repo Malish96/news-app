@@ -49,4 +49,24 @@ module.exports = {
       return res.status(500).json(err);
     }
   },
+
+  getAllUsers: async (req, res) => {
+    try {
+      const users = await db.Users.findAll();
+      const count = await db.Users.count();
+      const response = {
+        error: false,
+        statusCode: 200,
+        message: "Data retrieved sucessfully! ",
+        data: {
+          data: users,
+          total: count,
+        },
+      };
+      return res.json(response);
+    } catch (err) {
+      console.log(err);
+      return res.status(500).json(err);
+    }
+  },
 };

@@ -11,6 +11,15 @@ module.exports = {
       newsCategory: {
         type: Sequelize.STRING
       },
+      topic: {
+        type: Sequelize.STRING
+      },
+      userId: {
+        type: Sequelize.INTEGER
+      },
+      description: {
+        type: Sequelize.TEXT('long')
+      }, 
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

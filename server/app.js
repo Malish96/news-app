@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "http://localhost:8000",
     credentials: true,
   })
 );
@@ -29,6 +29,7 @@ app.get("/api", (req, res) =>
 
 require("./routes/UserRoutes")(app);
 require("./routes/NewsCategoryRoutes")(app);
+require("./routes/NewsRoutes")(app);
 
 db.sequelize
   .sync()
@@ -39,7 +40,7 @@ db.sequelize
     console.log(err, "Error syncing database");
   });
 
-const port = parseInt(process.env.PORT, 10) || 8000;
+const port = parseInt(process.env.PORT, 10) || 8081;
 
 app.set("port", port);
 

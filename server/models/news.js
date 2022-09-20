@@ -14,7 +14,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   News.init({
-    newsCategory: DataTypes.STRING
+    newsCategory: DataTypes.STRING,
+    topic: DataTypes.STRING,
+    description: DataTypes.TEXT('long'),
+    userId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'News',

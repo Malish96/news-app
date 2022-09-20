@@ -5,6 +5,24 @@
     icon: 'smile',
     component: './Welcome',
   },
+  {
+    path: '/editors/',
+    name: 'Editors',
+    component: 'editor/EditorLists',
+    showInMenu: true,
+  },
+  {
+    path: '/news-categories/',
+    name: 'News Categories',
+    component: 'newCategory/NewsCategoryList',
+    showInMenu: true,
+  },
+  {
+    path: '/news/',
+    name: 'News',
+    component: 'news/NewsLists',
+    showInMenu: true,
+  },
   // {
   //   path: '/user',
   //   layout: false,
@@ -19,33 +37,11 @@
   //     },
   //   ],
   // },
-  {
-    path: '/admin',
-    name: 'admin',
-    icon: 'crown',
-    access: 'canAdmin',
-    routes: [
-      {
-        path: '/admin/sub-page',
-        name: 'sub-page',
-        icon: 'smile',
-        component: './Welcome',
-      },
-      {
-        component: './404',
-      },
-    ],
-  },
-  {
-    name: 'list.table-list',
-    icon: 'table',
-    path: '/list',
-    component: './TableList',
-  },
-  {
-    path: '/',
-    redirect: '/welcome',
-  },
+  
+  // {
+  //   path: '/',
+  //   redirect: '/welcome',
+  // },
   {
     component: './404',
   },
