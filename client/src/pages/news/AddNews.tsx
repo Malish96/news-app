@@ -14,17 +14,6 @@ interface NewsProps {
 }
 
 const AddEditorForm: React.FC<NewsProps> = (props) => {
-
-  const getAllNewsCategories = async (params = {}, sorter: any, filter: any) => {
-    const newsCategory = new NewCategoryService();
-    const newsCategories = await newsCategory.getAllNewsCategory();
-    const catergoryNames = newsCategories.data.name;
-    console.log(newsCategories)
-    
-  }
-  getAllNewsCategories();
-
-
   return (
     <>
       <Modal

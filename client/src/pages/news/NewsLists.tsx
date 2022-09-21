@@ -42,10 +42,15 @@ const NewsLists: React.FC = () => {
     return;
   };
 
+  function onDeleteConfirm(id: any): void {
+    const news = new NewsSerivce();
+    const newsRecords = await news.deleteNews();
+  }
+
   const columns: ProColumns<News>[] = [
     {
       title: 'Topic',
-      dataIndex: 'topic'
+      dataIndex: 'topic',
     },
     {
       title: 'Description',
@@ -57,40 +62,39 @@ const NewsLists: React.FC = () => {
       fixed: 'right',
       render: (_, record) => (
         <Space>
-          
-            <Tooltip title="Edit">
-              <Link to={`/reminder/sms-campaign-plan/${record.key}`}>
-                  <span
-                    style={
-                      {
-                        paddingRight: "16px",
-                        position: "relative",
-                        top: "4px",
-                      }}>
-                    <EditIcon width={20} height={20} />
-                  </span>
-              </Link>
+          <Tooltip title="Edit">
+            <Link to={`/reminder/sms-campaign-plan/${record.key}`}>
+              <span
+                style={{
+                  paddingRight: '16px',
+                  position: 'relative',
+                  top: '4px',
+                }}
+              >
+                <EditIcon width={20} height={20} />
+              </span>
+            </Link>
+          </Tooltip>
+
+          <Popconfirm
+            placement="topLeft"
+            title="Are you sure? you want to delete this SMS campaign plan?"
+            onConfirm={() => onDeleteConfirm(record.id)}
+            okText="Yes"
+            cancelText="No"
+          >
+            <Tooltip title="Delete">
+              <span
+                style={{
+                  paddingRight: '16px',
+                  position: 'relative',
+                  top: '4px',
+                }}
+              >
+                <DeleteIcon width={20} height={20} />
+              </span>
             </Tooltip>
-          
-            <Popconfirm
-              placement="topLeft"
-              title="Are you sure? you want to delete this SMS campaign plan?"
-              // onConfirm={() => onDeleteConfirm(record.id)}
-              okText="Yes"
-              cancelText="No">
-              <Tooltip title="Delete">
-                <span
-                    style={
-                      {
-                        paddingRight: "16px",
-                        position: "relative",
-                        top: "4px",
-                      }}>
-                    <DeleteIcon width={20} height={20} />
-                  </span>
-              </Tooltip>
-            </Popconfirm>
-          
+          </Popconfirm>
         </Space>
       ),
     },
@@ -127,3 +131,5 @@ const NewsLists: React.FC = () => {
 };
 
 export default NewsLists;
+
+

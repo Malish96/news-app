@@ -12,6 +12,7 @@ module.exports = {
     }
   },
 
+
   getAllNewsCategory: async (req, res) => {
     try {
       const newsCategory = await db.NewsCategories.findAll();
